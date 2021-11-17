@@ -1,12 +1,12 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../../private/initialize.php');
 
 if(is_post_request()) {
 
   // Create record using post parameters
   $args = $_POST['admin'];
-  $admin = new Admin($args);
+  $admin = new Member($args);
   $result = $admin->save();
 
   if($result === true) {
@@ -19,7 +19,7 @@ if(is_post_request()) {
 
 } else {
   // display the form
-  $admin = new Admin;
+  $admin = new Member;
 }
 
 ?>
@@ -29,14 +29,14 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?=url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="admin new">
     <h1>Create Admin</h1>
 
-    <?php echo display_errors($admin->errors); ?>
+    <?=display_errors($admin->errors); ?>
 
-    <form action="<?php echo url_for('/staff/admins/new.php'); ?>" method="post">
+    <form action="<?=url_for('/staff/admins/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 

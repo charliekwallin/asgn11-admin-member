@@ -1,12 +1,12 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../../private/initialize.php');
 
 if(!isset($_GET['id'])) {
   redirect_to(url_for('/staff/admins/index.php'));
 }
 $id = $_GET['id'];
-$admin = Admin::find_by_id($id);
+$admin = Member::find_by_id($id);
 if($admin == false) {
   redirect_to(url_for('/staff/admins/index.php'));
 }
@@ -38,14 +38,13 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?= url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="admin edit">
     <h1>Edit Admin</h1>
 
-    <?php echo display_errors($admin->errors); ?>
+    <?= display_errors($admin->errors); ?>
 
-    <form action="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?= url_for('/staff/admins/edit.php?id=' . h(u($id))); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
