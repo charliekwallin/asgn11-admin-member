@@ -3,7 +3,7 @@ require_once('../private/initialize.php');
 include(SHARED_PATH . '/header.php'); 
 ?>
 
-<a href="../public/members/login.php">Log in</a> 
+<p><a href="../public/members/login.php">Log in</a> or <a href="../public/members/new.php">Become a Member</a></p>
 
 <h2>Sample of WNC Birds</h2>
 <p>Become a member to add more birds to our database!</p>

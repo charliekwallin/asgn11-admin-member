@@ -5,43 +5,40 @@ require_once('../../private/initialize.php');
 if(is_post_request()) {
 
   // Create record using post parameters
-  $args = $_POST['admin'];
-  $admin = new Member($args);
-  $result = $admin->save();
+  $args = $_POST['member'];
+  $member = new Member($args);
+  $result = $member->save();
 
   if($result === true) {
-    $new_id = $admin->id;
-    $_SESSION['message'] = 'The admin was created successfully.';
-    redirect_to(url_for('/staff/admins/show.php?id=' . $new_id));
+    $new_id = $member->id;
+    $_SESSION['message'] = 'The member was created successfully.';
+    redirect_to(url_for('members/show.php?id=' . $new_id));
   } else {
     // show errors
   }
 
 } else {
   // display the form
-  $admin = new Member;
+  $member = new Member;
 }
 
 ?>
 
-<?php $page_title = 'Create Admin'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Create a Member'; ?>
+<?php include(SHARED_PATH . '/member-header.php'); ?>
 
-<div id="content">
+  <a href="<?=url_for('members/index.php'); ?>">&laquo; Back to List</a>
 
-  <a class="back-link" href="<?=url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+    <h1>Create Member</h1>
 
-  <div class="admin new">
-    <h1>Create Admin</h1>
+    <?=display_errors($member->errors); ?>
 
-    <?=display_errors($admin->errors); ?>
-
-    <form action="<?=url_for('/staff/admins/new.php'); ?>" method="post">
+    <form action="<?=url_for('members/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
       <div id="operations">
-        <input type="submit" value="Create Admin" />
+        <input type="submit" value="Create member" />
       </div>
     </form>
 
@@ -49,4 +46,4 @@ if(is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/footer.php'); ?>

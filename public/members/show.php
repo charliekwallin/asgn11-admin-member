@@ -1,25 +1,15 @@
-<?php require_once('../../private/initialize.php'); ?>
-
-<?php
-
-$id = $_GET['id'] ?? '1'; // PHP > 7.0
-
-$admin = Member::find_by_id($id);
-
+<?php 
+  require_once('../../private/initialize.php'); 
+  $id = $_GET['id'] ?? '1'; // PHP > 7.0
+  $member = Member::find_by_id($id);
+  $page_title = 'Show All Users: ' . h($member->full_name());
+  include(SHARED_PATH . '/member-header.php'); 
 ?>
 
-<?php $page_title = 'Show All Users: ' . h($member->full_name()); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
-
-<div id="content">
-
-  <a class="back-link" href="<?= url_for('/staff/members/index.php'); ?>">&laquo; Back to List</a>
-
-  <div class="member show">
+  <a class="back-link" href="<?= url_for('public/index.php'); ?>">&laquo; Back to List</a>
 
     <h1>member: <?= h($member->full_name()); ?></h1>
 
-    <div class="attributes">
       <dl>
         <dt>First name</dt>
         <dd><?= h($member->first_name); ?></dd>
