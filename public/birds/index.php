@@ -1,4 +1,4 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../private/initialize.php'); ?>
 
 <?php
   
@@ -34,9 +34,9 @@ $birds = Bird::find_all();
           <td><?php echo h($bird->food); ?></td>
           <td><?php echo h($bird->conservation_level()); ?></td>
           <td><?php echo h($bird->backyard_tips); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('birds/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/birds/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/birds/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>

@@ -2,6 +2,13 @@
 
   require_once('../../private/initialize.php');
 
+  $page_title = 'Delete Member'; 
+  include(SHARED_PATH . '/member-header.php'); 
+?>
+
+  <a class="back-link" href="<?php echo url_for('/members/index.php'); ?>">&laquo; Back to List</a>
+
+<?php
   if(!isset($_GET['id'])) {
     redirect_to(url_for('members/index.php'));
   }
@@ -18,27 +25,18 @@
     $_SESSION['message'] = 'The user was deleted successfully.';
     redirect_to(url_for('members/index.php'));
 
-  } else {
-    // Display form
-  }
-
-  $page_title = 'Delete Member'; 
-  include(SHARED_PATH . '/member-header.php'); 
-?>
-
-  <a class="back-link" href="<?php echo url_for('/members/index.php'); ?>">&laquo; Back to List</a>
-
+  } else { ?>
     <h1>Delete Member</h1>
     <p>Are you sure you want to delete this bird enthusiast?</p>
     <p><?= h($member->full_name()); ?></p>
-
+    
     <form action="<?= url_for('members/delete.php?id=' . h(u($id))); ?>" method="post">
-      <div id="operations">
-        <input type="submit" name="commit" value="Delete Member />
-      </div>
+        <input type="submit" name="commit" value="Delete Member" />
     </form>
-  </div>
+    
+  <?php } ?>
 
-</div>
+  
+
 
 <?php include(SHARED_PATH . '/footer.php'); ?>
