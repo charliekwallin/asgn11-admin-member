@@ -6,7 +6,7 @@
   include(SHARED_PATH . '/member-header.php'); 
 ?>
 
-  <a class="back-link" href="<?= url_for('public/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?= url_for('members/index.php'); ?>">&laquo; Back to List</a>
 
     <h1>member: <?= h($member->full_name()); ?></h1>
 

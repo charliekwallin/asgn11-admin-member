@@ -20,7 +20,7 @@
           WNC Birds
         </a>
       </h1>
-      <h2>Member Menu</h2>
+      <h2>Member's Area</h2>
     </header>
 
     <navigation>

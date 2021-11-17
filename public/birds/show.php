@@ -1,4 +1,4 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../private/initialize.php'); ?>
 
 <?php
 
@@ -9,13 +9,11 @@ $bird = Bird::find_by_id($id);
 ?>
 
 <?php $page_title = 'Show Bird: ' . h($bird->common_name); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include(SHARED_PATH . '/member-header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/birds/index.php'); ?>">&laquo; Back to List</a>
-
-  <div class="bicycle show">
+  <a class="back-link" href="<?php echo url_for('/birds/index.php'); ?>">&laquo; Back to List</a>
 
     <h1>Bird: <?php echo h($bird->common_name); ?></h1>
 

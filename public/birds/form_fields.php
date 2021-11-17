@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../../private/initialize.php');
 
 // prevents this code from being loaded directly in the browser
 // or without first setting the necessary object
